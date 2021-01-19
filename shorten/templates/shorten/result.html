@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="d-flex container-fluid justify-content-center align-items-center" style="
+  min-height: 100%;
+  min-height: 100vh;
+">
+        <div class="row">
+            <div class="col-lg">
+                <p>{{ url }} has been shortened to /shorten/{{ path }}</p>
+                <a href="{% url 'index' %}">Go back</a>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="d-flex container-fluid justify-content-center align-items-center" style="
+  min-height: 100%;
+  min-height: 100vh;
+">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Link Shortener</h5>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Shortened Path</span>
+                        {{ form.shortened_path|as_crispy_field:"bootstrap5"}}
+                        {% if error == -1 %}<div class="invalid-feedback">
+      Path already exists.
+    </div>{% endif %}
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">URL</span>
+                        {{ form.original_url|as_crispy_field:"bootstrap5" }}
+                        <button class="btn btn-outline btn-dark">Go!</button>
+                    </div>
+                </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
